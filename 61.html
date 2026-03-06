@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 61: Neurologic Dysfunction – NCLEX Review</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(145deg, #a2b9d9, #7b97c2);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background: #e8f0fc;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0,0,0,0.2);
+        }
+        
+        .header {
+            background: linear-gradient(145deg, #2f5575, #143652);
+            color: white;
+            padding: 20px 30px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-bottom: 4px solid #0a1f30;
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        .header h1 {
+            font-size: 1.7rem;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+        
+        .counter {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-width: 100px;
+            text-align: center;
+            white-space: nowrap;
+            margin-left: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: #bdcde6;
+            flex-shrink: 0;
+            position: relative;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #4f7aa6, #143652);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 30px;
+            background: #dae5f5;
+        }
+        
+        .question-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 3px solid #9bb3d9;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .question-header {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .question-number {
+            background: linear-gradient(145deg, #2f5575, #143652);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(20,54,82,0.4);
+        }
+        
+        .question-text {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #102c40;
+            flex-grow: 1;
+            font-weight: 600;
+            padding-right: 15px;
+        }
+        
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .option {
+            padding: 20px;
+            border: 3px solid #cfc0e3;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #9bb3d9;
+        }
+        
+        .option:hover {
+            background: #dae5f5;
+            border-color: #4f7aa6;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(47,85,117,0.15);
+        }
+        
+        .option-letter {
+            background: linear-gradient(145deg, #2f5575, #143652);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            border: 3px solid #0a1f30;
+        }
+        
+        .option.correct {
+            background: linear-gradient(145deg, #66bb6a, #43a047);
+            border-color: #2e7d32;
+            color: white;
+        }
+        
+        .option.correct .option-letter {
+            background: #2e7d32;
+            color: white;
+            border-color: #1b5e20;
+        }
+        
+        .option.incorrect {
+            background: linear-gradient(145deg, #ef5350, #e53935);
+            border-color: #b71c1c;
+            color: white;
+        }
+        
+        .option.incorrect .option-letter {
+            background: #b71c1c;
+            color: white;
+            border-color: #8b0000;
+        }
+        
+        .feedback-area {
+            flex-shrink: 0;
+        }
+        
+        .feedback {
+            padding: 25px;
+            border-radius: 15px;
+            display: none;
+            align-items: center;
+            gap: 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            animation: slideIn 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .feedback.correct {
+            background: linear-gradient(145deg, #c8e6c9, #a5d6a7);
+            border: 3px solid #2e7d32;
+            color: #1b5e20;
+            display: flex;
+        }
+        
+        .feedback.incorrect {
+            background: linear-gradient(145deg, #ffcdd2, #ef9a9a);
+            border: 3px solid #b71c1c;
+            color: #710000;
+            display: flex;
+        }
+        
+        .feedback-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .rationale {
+            background: linear-gradient(145deg, #e7f0fd, #d9e4f7);
+            border: 3px solid #2f5575;
+            border-radius: 15px;
+            padding: 25px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .rationale.show {
+            display: block;
+        }
+        
+        .rationale h4 {
+            color: #143652;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .rationale p {
+            color: #102c40;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #cfc0e3;
+            border-top: 3px solid #bba8d7;
+            flex-shrink: 0;
+            height: 80px;
+            background: #b7cae7;
+            border-top: 3px solid #9bb3d9;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(145deg, #2f5575, #143652);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(20,54,82,0.4);
+            background: linear-gradient(145deg, #143652, #0a1f30);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(145deg, #6f8eb0, #4f6f91);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79,111,145,0.4);
+            background: linear-gradient(145deg, #4f6f91, #365475);
+        }
+        
+        .btn-cancel {
+            background: linear-gradient(145deg, #ef5350, #e53935);
+            color: white;
+            display: none;
+        }
+        
+        .btn-cancel:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(229,57,53,0.4);
+            background: linear-gradient(145deg, #e53935, #c62828);
+        }
+        
+        .btn-cancel.show {
+            display: flex;
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                height: 75px;
+                padding: 15px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .option {
+                padding: 15px;
+                font-size: 1.05rem;
+                gap: 15px;
+            }
+            
+            .option-letter {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .question-area {
+                padding: 20px;
+            }
+            
+            .navigation {
+                padding: 15px 20px;
+                height: 70px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .nav-buttons {
+                gap: 10px;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .header {
+                height: 70px;
+                padding: 15px 20px;
+            }
+            
+            .question-area {
+                padding: 20px;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .option {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-content">
+            <h1>🧠 Chapter 61: Neurologic Dysfunction</h1>
+            <div class="subtitle">37 NCLEX-style questions · ICP, seizures, craniotomy</div>
+        </div>
+        <div class="counter" id="counter">1/37</div>
+    </div>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div class="main-content">
+        <div class="question-area">
+            <div class="question-header">
+                <div class="question-number" id="questionNumber">1</div>
+                <div class="question-text" id="question"></div>
+            </div>
+            
+            <div class="options-container" id="options"></div>
+        </div>
+        
+        <div class="feedback-area">
+            <div class="feedback" id="feedback">
+                <div class="feedback-icon" id="feedbackIcon"></div>
+                <div id="feedbackText"></div>
+            </div>
+            <div class="rationale" id="rationale">
+                <h4>📘 RATIONALE:</h4>
+                <p id="rationaleText"></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <button class="btn btn-secondary" id="prevBtn" onclick="previousCard()">
+            ⬅️ Previous
+        </button>
+        <div class="nav-buttons">
+            <button class="btn btn-cancel" id="cancelBtn" onclick="cancelSelection()">
+                ❌ Cancel
+            </button>
+            <button class="btn btn-primary" id="nextBtn" onclick="nextCard()">
+                Next ➡️
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Chapter 61: Management of Patients With Neurologic Dysfunction – exact 37 questions from document
+    const questions = [
+        {
+            id: 1,
+            question: "1. A client is being admitted to the neurologic ICU following an acute head injury that has resulted in cerebral edema. When planning this client's care, the nurse would expect to administer what priority medication?",
+            options: [
+                "A. Hydrochlorothiazide",
+                "B. Furosemide",
+                "C. Mannitol",
+                "D. Spironlactone"
+            ],
+            correct: 2, // C
+            rationale: "The osmotic diuretic mannitol is given to dehydrate the brain tissue and reduce cerebral edema. This drug acts by reducing the volume of brain and extracellular fluid. Spironolactone, furosemide, and hydrochlorothiazide are diuretics that are not typically used in the treatment of increased ICP resulting from cerebral edema. (PTS:1 REF:p.2012)"
+        },
+        {
+            id: 2,
+            question: "2. The nurse is providing care for a client who is unconscious. What nursing intervention takes highest priority?",
+            options: [
+                "A. Maintaining accurate records of intake and output",
+                "B. Maintaining a patent airway",
+                "C. Inserting a nasogastric (NG) tube as prescribed",
+                "D. Providing appropriate pain control"
+            ],
+            correct: 1, // B
+            rationale: "Maintaining a patent airway always takes top priority, even though each of the other listed actions is necessary and appropriate. (PTS:1 REF:p.1994)"
+        },
+        {
+            id: 3,
+            question: "3. The nurse is caring for a client in the ICU who has a brain stem herniation and who is exhibiting an altered level of consciousness. Monitoring reveals that the client's mean arterial pressure (MAP) is 60 mm Hg with an intracranial pressure (ICP) reading of 5 mm Hg. What is the nurse's most appropriate action?",
+            options: [
+                "A. Position the client the high Fowler position as tolerated.",
+                "B. Administer osmotic diuretics as prescribed.",
+                "C. Participate in interventions to increase cerebral perfusion pressure (CPP).",
+                "D. Prepare the client for craniotomy."
+            ],
+            correct: 2, // C
+            rationale: "The CPP is 55 mm Hg, which is considered low. The normal CPP is 70 to 100 mm Hg. Clients with a CPP of less than 50 mm Hg experience irreversible neurologic damage. As a result, interventions are necessary. A craniotomy is not directly indicated. Diuretics and increased height of bed would exacerbate the client's condition. (PTS:1 REF:p.2000)"
+        },
+        {
+            id: 4,
+            question: "4. The nurse is caring for a client who is postoperative following a craniotomy. When writing the plan of care, the nurse identifies a diagnosis of 'deficient fluid volume related to fluid restriction and osmotic diuretic use.' What is the nurse's most appropriate intervention for this diagnosis?",
+            options: [
+                "A. Change the client's position as indicated.",
+                "B. Monitor serum electrolytes.",
+                "C. Maintain NPO status.",
+                "D. Monitor arterial blood gas (ABG) values."
+            ],
+            correct: 1, // B
+            rationale: "The postoperative fluid regimen depends on the type of neurosurgical procedure and is determined on an individual basis. The volume and composition of fluids are adjusted based on daily serum electrolyte values, along with fluid intake and output. Fluids may have to be restricted in clients with cerebral edema. Changing the client's position, maintaining an NPO status, and monitoring ABG values do not relate to the nursing diagnosis of deficient fluid volume. (PTS:1 REF:p.2014)"
+        },
+        {
+            id: 5,
+            question: "5. A client with a documented history of seizure disorder experiences a generalized seizure. What nursing action is most appropriate?",
+            options: [
+                "A. Restrain the client to prevent injury.",
+                "B. Open the client's jaws to insert an oral airway.",
+                "C. Place client in high Fowler position.",
+                "D. Loosen the client's restrictive clothing."
+            ],
+            correct: 3, // D
+            rationale: "An appropriate nursing intervention would include loosening any restrictive clothing on the client. No attempt should be made to restrain the client during the seizure because muscular contractions are strong and restraint can produce injury. Do not attempt to pry open jaws that are clenched in a spasm to insert anything. Broken teeth and injury to the lips and tongue may result from such an action. If possible, place the client on one side with head flexed forward, which allows the tongue to fall forward and facilitates drainage of saliva and mucus. (PTS:1 REF:p.2021)"
+        },
+        {
+            id: 6,
+            question: "6. A client who has been on long-term phenytoin therapy is admitted to the unit. In light of the adverse of effects of this medication, the nurse should prioritize which of the following in the client's plan of care?",
+            options: [
+                "A. Monitoring of pulse oximetry",
+                "B. Administration of a low-protein diet",
+                "C. Administration of thorough oral hygiene",
+                "D. Fluid restriction as prescribed"
+            ],
+            correct: 2, // C
+            rationale: "Gingival hyperplasia (swollen and tender gums) can be associated with long-term phenytoin use. Thorough oral hygiene should be provided consistently and encouraged after discharge. Fluid and protein restriction are contraindicated and there is no particular need for constant oxygen saturation monitoring. (PTS:1 REF:p.2022)"
+        },
+        {
+            id: 7,
+            question: "7. A client exhibiting an altered level of consciousness (LOC) due to blunt force trauma to the head is admitted to the emergency department (ED). The nurse should first gauge the client's LOC on the results of what diagnostic tool?",
+            options: [
+                "A. Monro-Kellie hypothesis",
+                "B. Glasgow Coma scale",
+                "C. Cranial nerve function",
+                "D. Mental status examination"
+            ],
+            correct: 1, // B
+            rationale: "LOC, a sensitive indicator of neurologic function, is assessed based on the criteria in the Glasgow Coma scale: eye opening, verbal response, and motor response. The Monro-Kellie hypothesis states that because of the limited space for expansion within the skull, an increase in any one of the components (blood, brain tissue, cerebrospinal fluid) causes a change in the volume of the others. Cranial nerve function and the mental status examination would be part of the neurologic examination for this client, but would not be the priority in evaluating LOC. Glasgow coma scale can be done quickly and establishes a baseline of neurologic function. (PTS:1 REF:p.1994)"
+        },
+        {
+            id: 8,
+            question: "8. The nurse is caring for a client with a brain tumor and is aware that the normal compensation measures to keep ICP (intracranial pressure) within normal limits may no longer be effective. What are the normal compensation measures for the brain? Select all that apply.",
+            options: [
+                "A. Displacing or shifting cerebral spinal fluid (CSF)",
+                "B. Decreasing cerebral perfusion",
+                "C. Increasing the absorption of CSF",
+                "D. Shifting brain tissue",
+                "E. Decreasing cerebral blood volume"
+            ],
+            correct: [0,2,4], // A, C, E
+            rationale: "The Monro–Kellie hypothesis explains the dynamic equilibrium of cranial contents. This hypothesis states that because of the limited space for expansion within the skull, an increase in any one of the components causes a change in the volume of the others. The brain typically compensates for these changes by displacing or shifting CSF, increasing the absorption or diminishing the production of CSF, or decreasing cerebral blood volume. Without such changes, ICP begins to rise. A decrease in cerebral perfusion and shifting brain tissue are not normal compensatory events. An increase in ICP can occur because of a brain tumor. Increased ICP from any cause would result in a decrease in cerebral perfusion which stimulates further edema and may shift brain tissue. A shift in brain tissue results in herniation which is a dire and frequently fatal event. (PTS:1 REF:p.2000)"
+        },
+        {
+            id: 9,
+            question: "9. A client with increased intracranial pressure (ICP) has a ventriculostomy for monitoring ICP. The nurse's most recent assessment reveals that the client is now exhibiting nuchal rigidity and photophobia. The nurse would be correct in suspecting the presence of what complication?",
+            options: [
+                "A. Encephalitis",
+                "B. Cerebral spinal fluid leak",
+                "C. Meningitis",
+                "D. Catheter occlusion"
+            ],
+            correct: 2, // C
+            rationale: "Complications of a ventriculostomy include ventricular infectious meningitis and problems with the monitoring system. Nuchal rigidity and photophobia are clinical manifestations of meningitis, but are not suggestive of encephalitis, a cerebral spinal fluid (CSF) leak, or an occluded catheter. (PTS:1 REF:p.2008)"
+        },
+        {
+            id: 10,
+            question: "10. The nurse is participating in the care of a client with increased ICP. What diagnostic test is contraindicated in this client's treatment?",
+            options: [
+                "A. Computed tomography (CT) scan",
+                "B. Lumbar puncture",
+                "C. Magnetic resonance imaging (MRI)",
+                "D. Venous Doppler studies"
+            ],
+            correct: 1, // B
+            rationale: "A lumbar puncture in a client with increased ICP may cause the brain to herniate from the withdrawal of fluid and change in pressure during the lumbar puncture. Herniation of the brain is a dire and frequently fatal event. CT, MRI, and venous Doppler are considered noninvasive procedures and they would not affect the ICP itself. (PTS:1 REF:p.2001)"
+        },
+        {
+            id: 11,
+            question: "11. The nurse is caring for a client who is in status epilepticus. What medication should the nurse anticipate administering to halt the seizure immediately?",
+            options: [
+                "A. Intravenous phenobarbital",
+                "B. Intravenous diazepam",
+                "C. Oral lorazepam",
+                "D. Oral phenytoin"
+            ],
+            correct: 1, // B
+            rationale: "Medical management of status epilepticus includes IV diazepam and IV lorazepam given slowly in an attempt to halt seizures immediately. Other medications (phenytoin, phenobarbital) are given later to maintain a seizure-free state. Oral medications are not given during status epilepticus. (PTS:1 REF:p.2026)"
+        },
+        {
+            id: 12,
+            question: "12. The nurse has created a plan of care for a client who is at risk for increased ICP. The client's care plan should specify monitoring for what early sign of increased ICP?",
+            options: [
+                "A. Disorientation and restlessness",
+                "B. Decreased pulse and respirations",
+                "C. Projectile vomiting",
+                "D. Loss of corneal reflex"
+            ],
+            correct: 0, // A
+            rationale: "Early indicators of ICP include disorientation and restlessness. Later signs include decreased pulse and respirations, projectile vomiting, and loss of brain stem reflexes, such as the corneal reflex. (PTS:1 REF:p.2009)"
+        },
+        {
+            id: 13,
+            question: "13. The neurologic ICU nurse is admitting a client with increased intracranial pressure. How should the nurse best position the client?",
+            options: [
+                "A. Position the client supine.",
+                "B. Maintain head of bed (HOB) elevated at 30 to 45 degrees.",
+                "C. Position client in prone position.",
+                "D. Maintain bed in Trendelenburg position."
+            ],
+            correct: 1, // B
+            rationale: "The client with increased ICP should be placed with the HOB elevated 30 to 45 degrees, with the neck in neutral alignment. Each of the other listed positions would cause a dangerous elevation in ICP. (PTS:1 REF:p.2005)"
+        },
+        {
+            id: 14,
+            question: "14. A clinic nurse is caring for a client diagnosed with migraine headaches. During the client teaching session, the client questions the nurse regarding alcohol consumption. What would the nurse be correct in telling the client about the effects of alcohol?",
+            options: [
+                "A. Alcohol causes hormone fluctuations.",
+                "B. Alcohol causes vasodilation of the blood vessels.",
+                "C. Alcohol has an excitatory effect on the CNS.",
+                "D. Alcohol diminishes endorphins in the brain."
+            ],
+            correct: 1, // B
+            rationale: "Alcohol causes vasodilation of the blood vessels and may exacerbate migraine headaches. Alcohol has a depressant effect on the CNS. Alcohol does not cause hormone fluctuations, nor does it decrease endorphins (morphine-like substances produced by the body) in the brain. (PTS:1 REF:p.2028)"
+        },
+        {
+            id: 15,
+            question: "15. A client has developed diabetes insipidus after having increased ICP following head trauma. What nursing assessment best addresses this complication?",
+            options: [
+                "A. Vigilant monitoring of fluid balance",
+                "B. Continuous BP monitoring",
+                "C. Serial arterial blood gases (ABGs)",
+                "D. Monitoring of the client's airway for patency"
+            ],
+            correct: 0, // A
+            rationale: "Diabetes insipidus requires fluid and electrolyte replacement, along with the administration of vasopressin, to replace and slow the urine output. Because of these alterations in fluid balance, careful monitoring is necessary. None of the other listed assessments directly addresses the major manifestations of diabetes insipidus. (PTS:1 REF:p.2010)"
+        },
+        {
+            id: 16,
+            question: "16. What should the nurse suspect when hourly assessment of urine output on a client post craniotomy exhibits a urine output from a catheter of 1,500 mL for two consecutive hours?",
+            options: [
+                "A. Cushing syndrome",
+                "B. Syndrome of inappropriate antidiuretic hormone (SIADH)",
+                "C. Adrenal crisis",
+                "D. Diabetes insipidus"
+            ],
+            correct: 3, // D
+            rationale: "Diabetes insipidus is an abrupt onset of extreme polyuria that commonly occurs in clients after brain surgery. Cushing syndrome is excessive glucocorticoid secretion resulting in sodium and water retention. SIADH is the result of increased secretion of ADH; the client becomes volume-overloaded, urine output diminishes, and serum sodium concentration becomes dilute. Adrenal crisis is undersecretion of glucocorticoids resulting in profound hypoglycemia, hypovolemia, and hypotension. (PTS:1 REF:p.2008)"
+        },
+        {
+            id: 17,
+            question: "17. During the examination of an unconscious client, the nurse observes that the client's pupils are fixed and dilated. What is the most plausible clinical significance of the nurse's finding?",
+            options: [
+                "A. It suggests onset of metabolic problems.",
+                "B. It indicates paralysis on the right side of the body.",
+                "C. It indicates paralysis of cranial nerve X (CN X).",
+                "D. It indicates an injury at the midbrain level."
+            ],
+            correct: 3, // D
+            rationale: "Pupils that are fixed and dilated indicate injury at the midbrain level. This finding is not suggestive of unilateral paralysis, metabolic deficits, or damage to CN X. (PTS:1 REF:p.1996)"
+        },
+        {
+            id: 18,
+            question: "18. The nurse is providing care for a client who is withdrawing from heavy alcohol use. The nurse and other members of the care team are present at the bedside when the client has a seizure. In preparation for documenting this clinical event, the nurse should note which of the following?",
+            options: [
+                "A. The ability of the client to follow instructions during the seizure.",
+                "B. The success or failure of the care team to physically restrain the client.",
+                "C. The client's ability to explain his seizure during the postictal period.",
+                "D. The client's activities immediately prior to the seizure."
+            ],
+            correct: 3, // D
+            rationale: "Before and during a seizure, the nurse observes the circumstances before the seizure, including visual, auditory, or olfactory stimuli; tactile stimuli; emotional or psychological disturbances; sleep; and hyperventilation. Communication with the client is not possible during a seizure and physical restraint is not attempted. The client's ability to explain the seizure may not be accurate since the client is often still confused during the postictal period. (PTS:1 REF:p.2012)"
+        },
+        {
+            id: 19,
+            question: "19. The nurse is caring for a client whose recent health history includes an altered LOC. What should be the nurse's first action when assessing this client?",
+            options: [
+                "A. Assessing the client's verbal response",
+                "B. Assessing the client's ability to follow complex commands",
+                "C. Assessing the client's judgment",
+                "D. Assessing the client's response to pain"
+            ],
+            correct: 0, // A
+            rationale: "Assessment of the client with an altered LOC often starts with assessing the verbal response through determining the client's orientation to time, person, and place. In most cases, this assessment will precede each of the other listed assessments, even though each may be indicated. (PTS:1 REF:p.1994)"
+        },
+        {
+            id: 20,
+            question: "20. The nurse caring for a client in a persistent vegetative state is regularly assessing for potential complications. The nurse should assess for which complications? Select all that apply.",
+            options: [
+                "A. Contractures",
+                "B. Hemorrhage",
+                "C. Pressure ulcers",
+                "D. Venous thromboembolism",
+                "E. Pneumonia"
+            ],
+            correct: [0,2,3,4], // A, C, D, E
+            rationale: "Based on the assessment data, potential complications (partially based on immobility) may include respiratory distress or failure, pneumonia, aspiration, pressure ulcer, deep vein thrombosis (DVT), and contractures. A persistent vegetative state does not directly create a heightened risk for hemorrhage. A persistent vegetative state condition is when the client is wakeful but devoid of conscious content, without cognitive or affective mental function. (PTS:1 REF:p.1993)"
+        },
+        {
+            id: 21,
+            question: "21. The nurse is caring for a client with a brain tumor. What drug would the nurse expect to be prescribed to reduce the edema surrounding the tumor?",
+            options: [
+                "A. Solumedrol",
+                "B. Dextromethorphan",
+                "C. Dexamethasone",
+                "D. Furosemide"
+            ],
+            correct: 2, // C
+            rationale: "If a brain tumor is the cause of the increased ICP, corticosteroids (e.g., dexamethasone) help reduce the edema surrounding the tumor. Solumedrol, a steroid, and furosemide, a loop diuretic, are not the drugs of choice in this instance. Dextromethorphan is used in cough medicines. (PTS:1 REF:p.2011)"
+        },
+        {
+            id: 22,
+            question: "22. The nurse is caring for a client who sustained a moderate head injury following a bicycle accident. The nurse's most recent assessment reveals that the client's respiratory effort has increased. What is the nurse's most appropriate action?",
+            options: [
+                "A. Inform the care team and assess for further signs of possible increased ICP.",
+                "B. Administer bronchodilators as prescribed and monitor the client's LOC.",
+                "C. Increase the client's bed height and reassess in 30 minutes.",
+                "D. Administer a bolus of normal saline as prescribed."
+            ],
+            correct: 0, // A
+            rationale: "Increased respiratory effort can be suggestive of increasing ICP, and the care team should be promptly informed. A bolus of IV fluid will not address the problem. Repositioning the client and administering bronchodilators are insufficient responses, even though these actions may later be prescribed. (PTS:1 REF:p.2009)"
+        },
+        {
+            id: 23,
+            question: "23. A client has a poor prognosis after being involved in a motor vehicle accident resulting in a head injury. As the client's ICP increases and condition worsens, the nurse knows to assess for indications of approaching death. These indications include which of the following?",
+            options: [
+                "A. Hemiplegia",
+                "B. Dry mucous membranes",
+                "C. Signs of internal bleeding",
+                "D. Loss of brain stem reflexes"
+            ],
+            correct: 3, // D
+            rationale: "Loss of brain stem reflexes, including pupillary, corneal, gag, and swallowing reflexes, is an ominous sign of approaching death. Dry mucous membranes, hemiplegia, and bleeding must be promptly addressed, but none of these is a common sign of impending death. (PTS:1 REF:p.2009)"
+        },
+        {
+            id: 24,
+            question: "24. A client has experienced a seizure in which she became rigid and then experienced alternating muscle relaxation and contraction. What type of seizure does the nurse recognize?",
+            options: [
+                "A. Unclassified seizure",
+                "B. Absence seizure",
+                "C. Generalized seizure",
+                "D. Focal seizure"
+            ],
+            correct: 2, // C
+            rationale: "Generalized seizures often involve both hemispheres of the brain, causing both sides of the body to react. Intense rigidity of the entire body may occur, followed by alternating muscle relaxation and contraction (generalized tonic–clonic contraction). This pattern of rigidity does not occur in clients who experience unclassified, absence, or focal seizures. (PTS:1 REF:p.2019)"
+        },
+        {
+            id: 25,
+            question: "25. The nurse is caring for a client who has developed SIADH. What intervention is most appropriate?",
+            options: [
+                "A. Fluid restriction",
+                "B. Transfusion of platelets",
+                "C. Transfusion of fresh frozen plasma (FFP)",
+                "D. Electrolyte restriction"
+            ],
+            correct: 0, // A
+            rationale: "The nurse also assesses for complications of increased ICP, including diabetes insipidus, and SIADH. SIADH requires fluid restriction and monitoring of serum electrolyte levels. Transfusions are unnecessary. (PTS:1 REF:p.2001)"
+        },
+        {
+            id: 26,
+            question: "26. The nurse is admitting a client to the unit who is scheduled for removal of an intracranial mass. What diagnostic procedures might be included in this client's admission orders? Select all that apply.",
+            options: [
+                "A. Transcranial Doppler flow study",
+                "B. Cerebral angiography",
+                "C. MRI",
+                "D. Cranial radiography",
+                "E. Electromyography (EMG)"
+            ],
+            correct: [0,1,2], // A, B, C
+            rationale: "Preoperative diagnostic procedures may include a CT scan to demonstrate the lesion and show the degree of surrounding brain edema, the ventricular size, and the displacement. An MRI scan provides information similar to that of a CT scan with improved tissue contrast, resolution, and anatomic definition. Cerebral angiography may be used to study a tumor's blood supply or to obtain information about vascular lesions. Transcranial Doppler flow studies are used to evaluate the blood flow within intracranial blood vessels. Regular x-rays of the skull would not be diagnostic for an intracranial mass. An EMG would not be ordered prior to intracranial surgery to remove a mass. (PTS:1 REF:p.2011)"
+        },
+        {
+            id: 27,
+            question: "27. A client is recovering from intracranial surgery performed approximately 24 hours ago and is reporting a headache that the client rates at 8 on a 10-point pain scale. What nursing action is most appropriate?",
+            options: [
+                "A. Administer morphine sulfate as prescribed.",
+                "B. Reposition the client in a prone position.",
+                "C. Apply a hot pack to the client's scalp.",
+                "D. Implement distraction techniques."
+            ],
+            correct: 0, // A
+            rationale: "The client usually has a headache after a craniotomy as a result of stretching and irritation of nerves in the scalp during surgery. Morphine sulfate may also be used in the management of postoperative pain in clients who have undergone a craniotomy. Prone positioning is contraindicated due to the consequent increase in ICP. Distraction would likely be inadequate to reduce pain and a hot pack may cause vasodilation and increased pain. (PTS:1 REF:p.2012)"
+        },
+        {
+            id: 28,
+            question: "28. A client is recovering from intracranial surgery that was performed using the transsphenoidal approach. The nurse should be aware that the client may have required surgery on what neurologic structure?",
+            options: [
+                "A. Cerebellum",
+                "B. Hypothalamus",
+                "C. Pituitary gland",
+                "D. Pineal gland"
+            ],
+            correct: 2, // C
+            rationale: "The transsphenoidal approach (through the mouth and nasal sinuses) is often used to gain access to the pituitary gland. This surgical approach would not allow for access to the pineal gland, cerebellum, or hypothalamus. (PTS:1 REF:p.2016)"
+        },
+        {
+            id: 29,
+            question: "29. A client is postoperative day 1 following intracranial surgery. The nurse's assessment reveals that the client's level of consciousness (LOC) is slightly decreased compared with the day of surgery. What is the nurse's best response to this assessment finding?",
+            options: [
+                "A. Recognize that this may represent the peak of postsurgical cerebral edema.",
+                "B. Alert the surgeon to the possibility of an intracranial hemorrhage.",
+                "C. Understand that the surgery may have been unsuccessful.",
+                "D. Recognize the need to refer the client to the palliative care team."
+            ],
+            correct: 0, // A
+            rationale: "Some degree of cerebral edema occurs after brain surgery; it tends to peak 24 to 36 hours after surgery, producing decreased responsiveness on the second postoperative day. As such, there is not necessarily any need to deem the surgery unsuccessful or to refer the client to palliative care. A decrease in LOC is not evidence of an intracranial hemorrhage. Any change in the client's LOC should be reported to the healthcare provider. (PTS:1 REF:p.2012)"
+        },
+        {
+            id: 30,
+            question: "30. A school nurse is called to the playground where a 6-year-old girl has been found sitting unresponsive and 'staring into space,' according to the playground supervisor. How would the nurse document the girl's activity in her chart at school?",
+            options: [
+                "A. Generalized seizure",
+                "B. Absence seizure",
+                "C. Focal seizure",
+                "D. Unclassified seizure"
+            ],
+            correct: 1, // B
+            rationale: "Staring episodes characterize an absence seizure, whereas focal seizures, generalized seizures, and unclassified seizures involve uncontrolled motor activity. (PTS:1 REF:p.2019)"
+        },
+        {
+            id: 31,
+            question: "31. A 35-year-old client with a history of traumatic brain injury has been admitted to the emergency department for a recent change in cognition. The client is steadily walking across the room, intermittently laughing loudly, and crying hysterically. What is the most likely condition associated with these signs?",
+            options: [
+                "A. Dementia",
+                "B. Status epilepticus",
+                "C. Pseudobulbar affect",
+                "D. Absence seizure"
+            ],
+            correct: 2, // C
+            rationale: "The condition known as pseudobulbar affect involves inappropriate or exaggerated emotional expression, usually episodes of laughing or crying. It is associated with brain injury (e.g., stroke, traumatic brain injury, multiple sclerosis [MS], amyotrophic lateral sclerosis [ALS], AD, and Parkinson disease). The client's age, gait, and new onset of symptoms make dementia an unlikely choice. Even new onset dementia typically occurs in a client over the age of 40 with a progressive /slow onset of symptoms which could impair their gait. Status epilepticus (acute prolonged seizure activity) can be defined as a seizure lasting 5 minutes or longer or serial seizures occurring without full recovery of consciousness between attacks. The client's symptoms do not support this finding. Absence seizures usually involve staring episodes. (PTS:1 REF:p.2017)"
+        },
+        {
+            id: 32,
+            question: "32. The nurse is caring for a client who has undergone supratentorial removal of a pituitary mass. What medication would the nurse expect to administer prophylactically to prevent seizures in this client?",
+            options: [
+                "A. Prednisone",
+                "B. Dexamethasone",
+                "C. Cafergot",
+                "D. Phenytoin"
+            ],
+            correct: 3, // D
+            rationale: "Anticonvulsant medication (phenytoin, levetiracetam) is often prescribed prophylactically for clients who have undergone supratentorial craniotomy because of the high risk of seizures after this procedure. Prednisone and dexamethasone are steroids and do not prevent seizures. Cafergot is used in the treatment of migraines. (PTS:1 REF:p.2011)"
+        },
+        {
+            id: 33,
+            question: "33. A hospital client has experienced a seizure. In the immediate recovery period, what action best protects the client's safety?",
+            options: [
+                "A. Place the client in a side-lying position.",
+                "B. Pad the client's bed rails.",
+                "C. Administer antianxiety medications as prescribed.",
+                "D. Reassure the client and family members."
+            ],
+            correct: 0, // A
+            rationale: "To prevent complications, the client is placed in the side-lying position to facilitate drainage of oral secretions. Suctioning is performed, if needed, to maintain a patent airway and prevent aspiration. None of the other listed actions promotes safety during the immediate recovery period. (PTS:1 REF:p.2020)"
+        },
+        {
+            id: 34,
+            question: "34. A nurse is caring for a client who experiences debilitating cluster headaches. The client should be taught to take appropriate medications at what point in the course of the onset of a new headache?",
+            options: [
+                "A. As soon as the client's pain becomes unbearable",
+                "B. As soon as the client senses the onset of symptoms",
+                "C. Twenty to 30 minutes after the onset of symptoms",
+                "D. When the client senses his or her symptoms peaking"
+            ],
+            correct: 1, // B
+            rationale: "A migraine or a cluster headache in the early phase requires abortive medication therapy instituted as soon as possible. Delaying medication administration would lead to unnecessary pain. (PTS:1 REF:p.2029)"
+        },
+        {
+            id: 35,
+            question: "35. A 50-year-old female client reports a new onset, moderate headache after a lumbar puncture. What is the most likely condition that the client is experiencing?",
+            options: [
+                "A. Cranial arteritis",
+                "B. Cluster headache",
+                "C. Paroxysmal hemicranias",
+                "D. Secondary headache"
+            ],
+            correct: 3, // D
+            rationale: "A secondary headache is a symptom associated with other causes, such as a brain tumor, an aneurysm, or lumbar puncture. Cranial arteritis is a cause of headache in the older population, reaching its greatest incidence in those older than 70 years of age. Inflammation of the cranial arteries is characterized by a severe headache localized in the region of the temporal arteries. A cluster headache is usually chronic and occurs more frequently in the male population. Paroxysmal hemicrania is a rare form of a primary headache that usually begins as an adult. It is usually severe, sudden, and can be linked to women with conditions like head trauma or a tumor on the pituitary gland. (PTS:1 REF:p.2026)"
+        },
+        {
+            id: 36,
+            question: "36. An adult client has sought care for the treatment of headaches that have become increasingly severe and frequent over the past several months. Which of the following questions addresses potential etiologic factors? Select all that apply.",
+            options: [
+                "A. 'Are you exposed to any toxins or chemicals at work?'",
+                "B. 'How would you describe your ability to cope with stress?'",
+                "C. 'What medications are you currently taking?'",
+                "D. 'When was the last time you were hospitalized?'",
+                "E. 'Does anyone else in your family struggle with headaches?'"
+            ],
+            correct: [0,1,2,4], // A, B, C, E
+            rationale: "Headaches are multifactorial, and may involve medications, exposure to toxins, family history, and stress. Hospitalization is an unlikely contributor to headaches. (PTS:1 REF:p.2025)"
+        },
+        {
+            id: 37,
+            question: "37. A client with a history of epilepsy is admitted preoperatively for a surgical procedure and dies overnight. The health care provider suspects sudden unexpected death in epilepsy (SUDEP). Which condition is most likely related to SUDEP?",
+            options: [
+                "A. Brain aneurysm",
+                "B. Undiagnosed sepsis",
+                "C. Cardiac abnormalities",
+                "D. Seizure medication overdose"
+            ],
+            correct: 2, // C
+            rationale: "Cardiac and respiratory abnormalities have been implicated in SUDEP deaths. SUDEP may or may not be related to a seizure event. There have been studies that suggest that clients have an irregular heart rhythm after seizure which causes the death. The client is preoperative, thus there is a low likelihood of undiagnosed sepsis. Clients with epilepsy, especially when their medications are no longer preventing seizures, are at serious risk for SUDEP. SUDEP is defined as nontraumatic, nondrowning unexpected death of a client with epilepsy. These events may be witnessed or unwitnessed and postmortem examination reveals no anatomical or toxicological cause of death. (PTS:1 REF:p.2021)"
+        }
+    ];
+
+    let currentQuestion = 0;
+    let selectedOption = null;
+    let answers = Array(questions.length).fill(null);
+
+    function loadQuestion() {
+        const q = questions[currentQuestion];
+        if (!q) return;
+
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        document.getElementById('progressBar').style.width = `${progress}%`;
+        document.getElementById('counter').textContent = `${currentQuestion + 1}/${questions.length}`;
+        document.getElementById('questionNumber').textContent = q.id;
+
+        document.getElementById('question').innerHTML = q.question;
+        loadOptions(q);
+
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('rationale').classList.remove('show');
+        document.getElementById('cancelBtn').classList.remove('show');
+
+        document.getElementById('prevBtn').disabled = currentQuestion === 0;
+        const stored = answers[q.id - 1];
+        document.getElementById('nextBtn').disabled = stored === null || stored === undefined;
+        document.getElementById('nextBtn').textContent = currentQuestion >= questions.length - 1 ? 'Finish ➡️' : 'Next ➡️';
+    }
+
+    function loadOptions(q) {
+        const container = document.getElementById('options');
+        container.innerHTML = '';
+        q.options.forEach((opt, idx) => {
+            const div = document.createElement('div');
+            div.className = 'option';
+            div.innerHTML = `<div class="option-letter">${String.fromCharCode(65 + idx)}</div><div>${opt}</div>`;
+            div.onclick = () => selectOption(idx);
+            container.appendChild(div);
+        });
+
+        const saved = answers[q.id - 1];
+        if (saved !== null && saved !== undefined) {
+            selectOption(saved, true);
+        }
+    }
+
+    function selectOption(index, fromMemory = false) {
+        const q = questions[currentQuestion];
+        if (!fromMemory && selectedOption !== null) return;
+
+        if (!fromMemory) {
+            selectedOption = index;
+            answers[q.id - 1] = index;
+        }
+
+        highlightSelected(index, q);
+        showFeedback(index, q);
+        document.getElementById('nextBtn').disabled = false;
+        document.getElementById('cancelBtn').classList.add('show');
+    }
+
+    function highlightSelected(index, q) {
+        const opts = document.querySelectorAll('.option');
+        opts.forEach((opt, i) => opt.classList.remove('correct', 'incorrect'));
+
+        const correctIndices = Array.isArray(q.correct) ? q.correct : [q.correct];
+        if (Array.isArray(q.correct)) {
+            correctIndices.forEach(ci => opts[ci]?.classList.add('correct'));
+            if (!correctIndices.includes(index)) {
+                opts[index]?.classList.add('incorrect');
+            }
+        } else {
+            if (index === q.correct) {
+                opts[index].classList.add('correct');
+            } else {
+                opts[index].classList.add('incorrect');
+                opts[q.correct].classList.add('correct');
+            }
+        }
+    }
+
+    function showFeedback(index, q) {
+        const fb = document.getElementById('feedback');
+        const icon = document.getElementById('feedbackIcon');
+        const text = document.getElementById('feedbackText');
+        const rationaleDiv = document.getElementById('rationale');
+        const rationaleP = document.getElementById('rationaleText');
+
+        const correctIndices = Array.isArray(q.correct) ? q.correct : [q.correct];
+        const isCorrect = correctIndices.includes(index);
+
+        if (isCorrect) {
+            fb.className = 'feedback correct';
+            icon.textContent = '✅';
+            text.textContent = 'CORRECT! Well done.';
+        } else {
+            fb.className = 'feedback incorrect';
+            icon.textContent = '❌';
+            const letters = correctIndices.map(c => String.fromCharCode(65 + c)).join(', ');
+            text.textContent = `INCORRECT. The correct answer(s): ${letters}`;
+        }
+
+        fb.style.display = 'flex';
+        rationaleP.innerHTML = q.rationale;
+        rationaleDiv.classList.add('show');
+    }
+
+    function cancelSelection() {
+        const q = questions[currentQuestion];
+        selectedOption = null;
+        answers[q.id - 1] = null;
+        document.querySelectorAll('.option').forEach(opt => opt.classList.remove('correct', 'incorrect'));
+        document.getElementById('feedback').style.display = 'none';
+        document.getElementById('rationale').classList.remove('show');
+        document.getElementById('cancelBtn').classList.remove('show');
+        document.getElementById('nextBtn').disabled = true;
+    }
+
+    function nextCard() {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            selectedOption = null;
+            loadQuestion();
+        } else {
+            currentQuestion = 0;
+            loadQuestion();
+        }
+    }
+
+    function previousCard() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            const q = questions[currentQuestion];
+            selectedOption = answers[q.id - 1];
+            loadQuestion();
+        }
+    }
+
+    // keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.key >= '1' && e.key <= '4') selectOption(parseInt(e.key)-1);
+        else if (e.key >= 'a' && e.key <= 'd') selectOption(e.key.charCodeAt(0)-97);
+        else if (e.key >= 'A' && e.key <= 'D') selectOption(e.key.charCodeAt(0)-65);
+        else if (e.key === 'ArrowLeft' && !document.getElementById('prevBtn').disabled) previousCard();
+        else if (e.key === 'ArrowRight' && !document.getElementById('nextBtn').disabled) nextCard();
+        else if (e.key === 'Escape' && document.getElementById('cancelBtn').classList.contains('show')) cancelSelection();
+    });
+
+    loadQuestion();
+</script>
+</body>
+</html>
